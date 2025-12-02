@@ -1,0 +1,299 @@
+/* blogapp/static/blogapp/style.css */ 
+ 
+/* Styles Généraux */ 
+body { 
+   font-family: Arial, Helvetica, sans-serif; 
+   margin: 0; 
+   padding: 0; 
+   background-color: #f4f7f6; /* Un gris très clair, un peu différent */ 
+   color: #333; 
+   line-height: 1.6; 
+} 
+ 
+.container { 
+   width: 80%; 
+   max-width: 960px; /* Limite la largeur maximale */ 
+   margin: 20px auto; /* Centre le contenu */ 
+   padding: 20px; 
+   background-color: #fff; 
+   border-radius: 8px; 
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+} 
+ 
+h1, h2, h3 { 
+   color: #2c3e50; /* Un bleu foncé/gris */ 
+} 
+ 
+h1 { 
+   text-align: center; 
+   margin-bottom: 30px; 
+} 
+ 
+a { 
+   color: #3498db; /* Un bleu clair pour les liens */ 
+   text-decoration: none; 
+} 
+a:hover { 
+   text-decoration: underline; 
+} 
+ 
+/* Navigation */ 
+nav { 
+   background-color: #2c3e50; /* Bleu foncé/gris */ 
+   color: #fff; 
+   padding: 15px 0; 
+   text-align: center; 
+   margin-bottom: 30px; 
+} 
+ 
+nav a { 
+   color: #fff; 
+   margin: 0 15px; 
+   font-weight: bold; 
+} 
+ 
+nav a:hover { 
+   color: #ecf0f1; /* Un blanc cassé au survol */ 
+   text-decoration: none; 
+} 
+ 
+nav .user-greeting { 
+   color: #bdc3c7; /* Un gris clair pour le message de bonjour */ 
+   margin: 0 15px; 
+} 
+ 
+/* Formulaires */ 
+form { 
+   margin-top: 20px; 
+} 
+ 
+form p { /* Les champs de formulaire sont souvent dans des <p> avec form.as_p */ 
+   margin-bottom: 15px; 
+} 
+ 
+form label { 
+   display: block; 
+   margin-bottom: 5px; 
+   font-weight: bold; 
+} 
+ 
+form input[type="text"], 
+form input[type="password"], 
+form input[type="email"], /* Si vous avez des champs email */
+form textarea { 
+   width: 100%; 
+   padding: 10px; 
+   border: 1px solid #ddd; 
+   border-radius: 4px; 
+   box-sizing: border-box; /* Important pour que padding n'augmente pas la largeur totale */ 
+} 
+ 
+form textarea { 
+   min-height: 120px; /* Hauteur minimale pour les zones de texte */ 
+} 
+ 
+button[type="submit"], .button-link { 
+   background-color: #3498db; /* Bleu */ 
+   color: white; 
+   padding: 10px 20px; 
+   border: none; 
+   border-radius: 4px; 
+   cursor: pointer; 
+   font-size: 1em; 
+   text-decoration: none; /* Pour les .button-link */ 
+   display: inline-block; /* Pour les .button-link */ 
+} 
+ 
+button[type="submit"]:hover, .button-link:hover { 
+   background-color: #2980b9; /* Bleu un peu plus foncé */ 
+} 
+ 
+/* Articles */ 
+.article-list li { 
+   list-style-type: none; 
+   padding: 15px; 
+   margin-bottom: 15px; 
+   background-color: #fdfdfd; 
+   border: 1px solid #eee; 
+   border-radius: 5px; 
+} 
+ 
+.article-list h3 a { 
+   color: #2c3e50; 
+} 
+ 
+.article-meta { 
+   font-size: 0.9em; 
+   color: #7f8c8d; /* Gris */ 
+   margin-bottom: 10px; 
+}
+
+article h2 { /* Titre d'un article sur la page de détail */ 
+   margin-bottom: 10px; 
+} 
+ 
+article em { /* "Par auteur le date" */ 
+   color: #7f8c8d; 
+   font-size: 0.9em; 
+   display: block; 
+   margin-bottom: 20px; 
+} 
+ 
+article hr { 
+   margin-top: 20px; 
+   margin-bottom: 20px; 
+   border: 0; 
+   border-top: 1px solid #eee; 
+} 
+ 
+/* Commentaires */ 
+#commentaires { 
+   margin-top: 30px; 
+   padding-top: 20px; 
+   border-top: 1px solid #eee; 
+} 
+ 
+#commentaires h3, #commentaires h4 { 
+   margin-bottom: 15px; 
+} 
+ 
+.commentaire-item { 
+   border: 1px solid #e0e0e0; 
+   padding: 15px; 
+   margin-top: 15px; 
+   background-color: #f9f9f9; 
+   border-radius: 4px; 
+} 
+ 
+.commentaire-item p strong { /* Nom de l'auteur du commentaire */ 
+   color: #333; 
+} 
+ 
+.commentaire-item p small { /* Date du commentaire */ 
+   font-size: 0.85em; 
+   color: #777; 
+} 
+
+/* Messages Django (pour les notifications) */ 
+.messages { 
+   list-style: none; 
+   padding: 0; 
+   margin: 0 0 20px 0; 
+} 
+.messages li { 
+   padding: 10px 15px; 
+   margin-bottom: 10px; 
+   border-radius: 4px; 
+} 
+.messages li.success { 
+   background-color: #d4edda; /* Vert clair */ 
+   color: #155724; /* Vert foncé */ 
+   border: 1px solid #c3e6cb; 
+} 
+.messages li.error { 
+   background-color: #f8d7da; /* Rouge clair */ 
+   color: #721c24; /* Rouge foncé */ 
+   border: 1px solid #f5c6cb; 
+} 
+.messages li.info { 
+   background-color: #cce5ff; /* Bleu clair */ 
+   color: #004085; /* Bleu foncé */ 
+   border: 1px solid #b8daff; 
+} 
+.messages li.warning { 
+   background-color: #fff3cd; /* Jaune clair */ 
+   color: #856404; /* Jaune foncé */ 
+   border: 1px solid #ffeeba; 
+} 
+ 
+ 
+/* Footer */ 
+footer { 
+   text-align: center; 
+   margin-top: 40px; 
+   padding: 20px 0; 
+   border-top: 1px solid #ddd; 
+   font-size: 0.9em; 
+   color: #777; 
+} 
+/* blogapp/static/blogapp/style.css */ 
+/* ... (tous les styles précédents) ... */ 
+ 
+/* Styles pour la Page de Profil Utilisateur */ 
+.profil-header { 
+   text-align: center; 
+   margin-bottom: 30px; 
+   padding-bottom: 20px; 
+   border-bottom: 1px solid #eee; 
+} 
+ 
+.profil-header h1 { 
+   margin-bottom: 10px; 
+   font-size: 2.5em; /* Un peu plus grand */ 
+} 
+ 
+.profil-header p { 
+   font-size: 1.1em; 
+   color: #555; 
+} 
+ 
+.profil-separator { /* Si on veut un séparateur plus visible que celui du header */ 
+   margin-top: 20px; 
+   margin-bottom: 30px; 
+   border: 0; 
+   border-top: 1px dashed #ccc; 
+} 
+ 
+.profil-articles h2 { 
+   font-size: 1.8em; 
+   margin-bottom: 20px; 
+   color: #333; 
+   border-bottom: 2px solid #3498db; /* Soulignement avec la couleur des liens */ 
+   padding-bottom: 5px; 
+   display: inline-block; /* Pour que le border-bottom ne prenne pas toute la largeur */ 
+} 
+ 
+/* On peut réutiliser .article-list pour les articles du profil */ 
+/* Si on veut un style spécifique pour les articles sur la page de profil : 
+.profil-articles .article-list li { 
+   background-color: #f0f0f0; 
+} 
+*/
+.pagination { 
+   margin-top: 30px; 
+   text-align: center; 
+} 
+ 
+.pagination .step-links a, 
+.pagination .step-links .disabled-link, 
+.pagination .current-page { 
+   display: inline-block; 
+   padding: 8px 12px; 
+   margin: 0 2px; 
+   border: 1px solid #ddd; 
+   border-radius: 4px; 
+   color: #3498db; /* Couleur des liens par défaut */ 
+   text-decoration: none; 
+} 
+ 
+.pagination .step-links a:hover { 
+   background-color: #f0f0f0; 
+   border-color: #ccc; 
+} 
+ 
+.pagination .current-page { 
+   font-weight: bold; 
+   background-color: #3498db; /* Couleur principale pour la page actuelle */ 
+   color: white; 
+   border-color: #3498db; 
+}
+.pagination .disabled-link { 
+color: #aaa; /* Gris pour les liens désactivés */ 
+pointer-events: none; /* Empêche le clic */ 
+border-color: #eee; 
+} 
+/* On peut réutiliser .button-link pour les boutons de pagination, 
+mais on a défini des styles plus spécifiques ci-dessus. 
+Si vous voulez utiliser .button-link, assurez-vous qu'il ne crée pas de conflit. 
+Pour l'instant, les styles ci-dessus sont autonomes. 
+*/
