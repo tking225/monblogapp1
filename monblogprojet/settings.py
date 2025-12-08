@@ -1,19 +1,21 @@
 import os
 from pathlib import Path
 import dj_database_url
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ===========================
 #     SECRET KEY & DEBUG
 # ===========================
-SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")
+SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    "localhost",
-    ".onrender.com",
+    "monblogprojet-1-2.onrender.com",
+    "localhost","127.0.0.1",
+    
 ]
 
 # ===========================
@@ -28,7 +30,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     # Ton app
-    "blogapp",
+    'blogapp',
 ]
 
 # ===========================
@@ -71,13 +73,25 @@ WSGI_APPLICATION = "monblogprojet.wsgi.application"
 # ===========================
 #         DATABASE
 # ===========================
-DATABASES = {
-    "default": dj_database_url.config(
-        default="sqlite:///db.sqlite3",
-        conn_max_age=600,
-        ssl_require=True
-    )
-}
+DATABASE_URL = config("DATABASE_URL", default=None)
+
+if DATABASE_URL:
+    # Production : Render utilise PostgreSQL
+    DATABASES = {
+        "default": dj_database_url.parse(
+            DATABASE_URL,
+            conn_max_age=600,
+            ssl_require=True
+        )
+    }
+else:
+    # Local : fallback vers SQLite
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 # ===========================
 #        PASSWORDS
